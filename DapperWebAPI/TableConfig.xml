@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTableConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TableConfiguration>
+    <Name>WALIUJR_MEMBER</Name>
+    <SqlType>MsSql</SqlType>
+    <WithLock>true</WithLock> 
+    <Author>dbo</Author>
+    <CacheDependency>true</CacheDependency> 
+    <ConnectString>Integrated Security=False;server=192.168.0.101;database=WALIUJR_MEMBER;User ID=devuser;Password=cst-88888;Connect Timeout=30</ConnectString>
+  </TableConfiguration>
+  <TableConfiguration>
+    <Name>WALIUJR_PRODUCT</Name>
+    <SqlType>MsSql</SqlType>
+    <WithLock>true</WithLock>
+    <Author>dbo</Author>
+    <CacheDependency>true</CacheDependency>
+    <ConnectString>Integrated Security=False;server=192.168.0.101;database=WALIUJR_PRODUCT;User ID=devuser;Password=cst-88888;Connect Timeout=30</ConnectString>
+  </TableConfiguration>
+  <TableConfiguration>
+    <Name>WALIUJR_SYS</Name>
+    <SqlType>MsSql</SqlType>
+    <WithLock>true</WithLock>
+    <Author>dbo</Author>
+    <CacheDependency>true</CacheDependency>
+    <ConnectString>Integrated Security=False;server=192.168.0.101;database=WALIUJR_SYS;User ID=devuser;Password=cst-88888;Connect Timeout=30</ConnectString>
+  </TableConfiguration>
+</ArrayOfTableConfiguration>
+  
+
