@@ -26,7 +26,7 @@ namespace DapperWeb.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-
+             
             var person = JsonConfigurationHelper.GetAppSettings<List<TableConfiguration>>("TableConfigCollection");
             return Json(person);
         }
