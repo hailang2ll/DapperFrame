@@ -12,7 +12,8 @@
 一、原生态的Dapper语法
 1、集合语法
 var list = connection.Query<Sys_DapperTest>("SELECT * FROM dbo.Sys_DapperTest ORDER BY ID DESC").ToList();
- 
+
+
 var list = connection.Query<Sys_DapperTest>("SELECT * FROM dbo.Sys_DapperTest WHERE ID IN @Ids", new { Ids = new int[] { 1, 2, 3, 4 } }).ToList();
   
 var list = connection.Query<Sys_DapperTest>("SELECT * FROM dbo.Sys_DapperTest WHERE Name LIKE @Name", new { Name = "%hai%" }).ToList();
