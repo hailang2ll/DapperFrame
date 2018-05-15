@@ -22,6 +22,7 @@ var list = connection.Query<Sys_DapperTest>("SELECT * FROM dbo.Sys_DapperTest WH
 var list = connection.Query<Sys_DapperTest>("SELECT * FROM dbo.Sys_DapperTest WHERE ID=@ID", new { ID = 13 }).First();
 
 2、新增语法
+
 var flag = connection.Execute("INSERT dbo.Sys_DapperTest( Name, Age )VALUES  ( @Name,@Age)", new { Name = "jiayou", Age = 2 });
 
 Sys_DapperTest entity = new Sys_DapperTest()
@@ -32,12 +33,15 @@ Age = 3,
 var flag = connection.Execute("INSERT dbo.Sys_DapperTest( Name, Age )VALUES  ( @Name,@Age)", entity);
 
 3、删除语法
+
 var flag = connection.Execute("DELETE FROM dbo.Sys_DapperTest WHERE ID=@ID", new { ID = 14 });
 
 4、修改语法
+
 var flag = connection.Execute("UPDATE dbo.Sys_DapperTest SET Name=@Name WHERE ID=@ID", new { Name = "bbbb", ID = 15 });
 
 5、事物语法
+
 using (var transaction = connection.BeginTransaction())
 {
 var flag = connection.Execute("INSERT dbo.Sys_DapperTest( Name, Age )VALUES  ( N'hailangCCC',1)", transaction: transaction);
@@ -47,26 +51,33 @@ transaction.Commit();
  
 
 二、DapperExtensions语法
+
 1、集合
+
 BaseDB<Sys_DapperTest> db = new BaseDB<Sys_DapperTest>();
 var list = db.GetList();
 
 2、分页
+
  BaseDB<Sys_DapperTest> db = new BaseDB<Sys_DapperTest>();
 //条件
+
 var pg = new PredicateGroup { Operator = GroupOperator.And, Predicates = new List<IPredicate>() };
 pg.Predicates.Add(Predicates.Field<Sys_DapperTest>(x => x.ID, Operator.Eq, new List<int>() { 1, 2, 3, 4 }));
 //排序
+	
 List<ISort> sort = new List<ISort>();
 sort.Add(Predicates.Sort<Sys_DapperTest>(p => p.ID, true));
 var list = db.GetPageList(pg, sort, 1, 10).ToList();
 int total = db.Count();
 	
 3、实体
+
 BaseDB<Sys_DapperTest> db = new BaseDB<Sys_DapperTest>();
 Sys_DapperTest entity = db.Get(15);
 
 4、新增
+
 Sys_DapperTest entity = new Sys_DapperTest()
 {
 Name = "lang",
@@ -76,5 +87,6 @@ BaseDB<Sys_DapperTest> db = new BaseDB<Sys_DapperTest>();
 bool flag = db.Insert(entity);
 
 5、修改
+
 bool flag = db.Update(entity);
    
